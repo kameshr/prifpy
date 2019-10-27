@@ -9,8 +9,8 @@ Use function `prifpy.prifac` to pass on the number to be prime factorized as an 
 This dictionary has the number that is factorized also stored in it as the value under a special key `-1`
 Use function `prifpy.printprifac` to print the above dictionary of prime factors to `STDOUT`
 
-## Copyright 2019 Kamesh Raghavendra
-All Rights Reserved.
+### Copyright:
+**(c) 2019 Kamesh Raghavendra.** All Rights Reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may
 not use this file except in compliance with the License. You may obtain
