@@ -17,6 +17,7 @@
 # Description: Prime factorization of numbers
 
 import sympy
+import numpy
 
 NUMCOLOR = "\033[1;90;40m"
 PRIMECOLOR = "\033[1;94;40m"
@@ -78,3 +79,18 @@ def printprifac(primeFactors):
 			print(" + " + PRIMECOLOR + str(prime) + POWERSYM + "^" + POWERCOLOR + str(power) + LOSECOLOR, end = '', flush = True)
 	print("\n")
 	return
+
+# Compute the lowest common multiple for a given array of numbers
+def lcm(numbers):
+	pfarray = numpy.array([prifac(num) for num in numbers])
+	lcm, lcmBuffer = dict(), dict()
+	for pf in pfarray:
+		lcmBuffer.update(pf)
+		for prime, power in lcm.items():
+			lcmBuffer[prime] = max(lcmBuffer[prime], power)
+		lcm = lcmBuffer.copy()
+	lcmValue = int(1)
+	for prime, power in lcm.items():
+		if prime > int(1):
+			lcmValue = lcmValue * pow(prime, power)
+	return lcmValue
