@@ -1,5 +1,6 @@
 PRIFPY is a Python3 library for computing the prime factorization of numers.
-It has dependencies on sympy and numpy libraries. Please install them before using prifpy.
+It has dependency on sympy library. Please install sympy before using prifpy.
+>> pip3 install sympy
 
 Usage:
 Add PRIFPY to your application with 'import prifpy'
