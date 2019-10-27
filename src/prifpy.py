@@ -30,12 +30,12 @@ ERRORCOLOR = "\033[1;31;40m"
 # The first item in the list will be the number itself with '-1' power
 # Prime factors are loaded from the second item in the list onwards
 def prifac(num):
-	if not(isinstance(num, int)) or num <= 1:
-		return list([-1, "[ERROR] Invalid number passed."])
+	if not(isinstance(num, int)) or num < 1:
+		return dict({-1: "[ERROR] Invalid number passed."})
 
 	num = int(num)
-	if num < 2:
-		return list([-1, "[ERROR] Invalid number passed."])
+	if num == 1:
+		return dict({-1: 1, 1: 1})
 
 	iterLimit = int(num)
 	primeIter = int(2)
@@ -64,7 +64,7 @@ def printprifac(primeFactors):
 	if len(primeFactors) < 2:
 		print(ERRORCOLOR + "[ERROR] Ill formed prime factor list.\n" + LOSECOLOR)
 
-	if len(primeFactors) == 2:
+	if len(primeFactors) == 2 and primeFactors[-1] in primeFactors:
 		print("[INFO] " + NUMCOLOR + str(primeFactors[-1]) + LOSECOLOR + " is a prime number.")
 	
 	first = False
@@ -91,8 +91,33 @@ def lcm(numbers):
 		for prime, power in lcm.items():
 			lcmBuffer[prime] = max(lcmBuffer[prime], power)
 		lcm = lcmBuffer.copy()
-	lcmValue = int(1)
+	lcm[-1] = int(1)
 	for prime, power in lcm.items():
 		if prime > int(1):
-			lcmValue = lcmValue * pow(prime, power)
-	return lcmValue
+			lcm[-1] = lcm[-1] * pow(prime, power)
+	return lcm
+
+# Compute the hishest common factor for a given array of numbers
+# It takes an input argument of an array of positive integers > 1
+# It returns an 'int' value of the HCF of the numbers in the input array
+def hcf(numbers):
+	pfarray = numpy.array([prifac(num) for num in numbers])
+	hcf = dict()
+	hvfPrimes = list()
+	first = True
+	for pf in pfarray:
+		if first:
+			hcf = pf.copy()
+			hcfPrimes = list(hcf.keys())
+			first = False
+		else:
+			for prime in hcfPrimes:
+				if prime in pf.keys() and prime in hcf.keys():
+					hcf[prime] = min(hcf[prime], pf[prime])
+				elif prime not in pf.keys() and prime in hcf.keys():
+					hcf.pop(prime)
+	hcf[-1] = int(1)
+	for prime, power in hcf.items():
+		if prime > int(1):
+			hcf[-1] = hcf[-1] * pow(prime, power)
+	return hcf
