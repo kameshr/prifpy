@@ -16,7 +16,6 @@
 # File: prfipy.py
 # Description: Prime factorization of numbers
 
-import math
 import sympy
 
 NUMCOLOR = "\033[1;90;40m"
@@ -34,6 +33,9 @@ def prifac(num):
 		return list([-1, "[ERROR] Invalid number passed."])
 
 	num = int(num)
+	if num < 2:
+		return list([-1, "[ERROR] Invalid number passed."])
+
 	iterLimit = int(num)
 	primeIter = int(2)
 	primeFactors = list()
