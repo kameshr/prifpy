@@ -15,7 +15,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-# File: factorise.py
+# File: factorise
 # Description: Sample wrapper program for prifpy from command line
 
 import prifpy
