@@ -10,10 +10,11 @@ This dictionary has the number that is factorized also stored in it as the value
 
 2. `prifpy.printprifac`: Print the above created dictionary of prime factors to `STDOUT` by passing the `dict` to it.
 
-3. `lcm`: Computes the LCM of an array of number passed as an argument and returns the prime factorized `dict` object of the LCM. The LCM value can be accessed by the special key `-1`.
+3. `prifpy.lcm`: Computes the LCM of an array of number passed as an argument and returns the prime factorized `dict` object of the LCM. The LCM value can be accessed by the special key `-1`.
 
-4. `hcf`: Computes the HCF of an array of number passed as an argument and returns the prime factorized `dict` object of the HCF. The HCF value can be accessed by the special key `-1`.
+4. `prifpy.hcf`: Computes the HCF of an array of number passed as an argument and returns the prime factorized `dict` object of the HCF. The HCF value can be accessed by the special key `-1`.
 <br>
+
 **`prifpy-cmd`** is a command line wrapper script for the module. Please run it to see its options.
 
 ### Copyright:
