@@ -21,9 +21,8 @@
 import prifpy
 import sys
 
-print("Welcome to prime factorization!\n")
 try:
-	num = int(input("Enter the number to be prime factorized: "))
+	num = int(sys.argv[1])
 except:
 	print(prifpy.ERRORCOLOR + "[ERROR] Wrong input. Please try again with an interger number greater than 1.\n" + prifpy.LOSECOLOR)
 	sys.exit()
