@@ -1,4 +1,4 @@
-# PRIFPY: A Python module for computing the prime factorization of numers.
+# PRIFPY: A Python module for computing the prime factorization of numbers.
 It has dependencies on [sympy](https://www.sympy.org/en/index.html) and [numpy](https://numpy.org/) libraries. Please install them using `pip` before using `prifpy`.
 
 ## Usage:
