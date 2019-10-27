@@ -38,23 +38,23 @@ def prifac(num):
 
 	iterLimit = int(num)
 	primeIter = int(2)
-	primeFactors = list()
-	primeFactors.append([num, -1])
+	primeFactors = dict()
+	primeFactors[-1] = num
 
 	while primeIter <= iterLimit:
 		if num % primeIter == 0:
 			power = int(1)
 			while num % int(pow(primeIter, power)) == 0:
 				power = power + 1
-			primeFactors.append([primeIter, power-1])
+			primeFactors[primeIter] = power-1
 			iterLimit = int(iterLimit/pow(primeIter, power-1))
 		if sympy.isprime(iterLimit):
-			primeFactors.append([iterLimit, 1])
+			primeFactors[iterLimit] = 1
 			break
 		primeIter = sympy.nextprime(primeIter)
 
 	if len(primeFactors) == 1:
-		primeFactors.append([num, int(1)])
+		primeFactors[num] = 1
 	return primeFactors
 
 # Print the prime factorization list to STDOUT in expanded form
@@ -64,13 +64,17 @@ def printprifac(primeFactors):
 		print(ERRORCOLOR + "[ERROR] Ill formed prime factor list.\n" + LOSECOLOR)
 
 	if len(primeFactors) == 2:
-		print("[INFO] " + NUMCOLOR + str(primeFactors[0][0]) + LOSECOLOR + " is a prime number.")
+		print("[INFO] " + NUMCOLOR + str(primeFactors[-1]) + LOSECOLOR + " is a prime number.")
 	
-	print(NUMCOLOR + str(primeFactors[0][0]) + LOSECOLOR + " = " + PRIMECOLOR + str(primeFactors[1][0]) + POWERSYM + "^" + POWERCOLOR + str(primeFactors[1][1]) + LOSECOLOR, end = '', flush = True)
-
-	printIter = 2
-	while printIter < len(primeFactors):
-		print(" + " + PRIMECOLOR + str(primeFactors[printIter][0]) + POWERSYM + "^" + POWERCOLOR + str(primeFactors[printIter][1]) + LOSECOLOR, end = '', flush = True)
-		printIter = printIter + 1
+	first = False
+	for prime, power in primeFactors.items():
+		if prime == -1:
+			print(NUMCOLOR + str(power) + LOSECOLOR + " = ", end = '', flush = True)
+			first = True
+		elif first:
+			print(PRIMECOLOR + str(prime) + POWERSYM + "^" + POWERCOLOR + str(power) + LOSECOLOR, end = '', flush = True)
+			first = False
+		else:
+			print(" + " + PRIMECOLOR + str(prime) + POWERSYM + "^" + POWERCOLOR + str(power) + LOSECOLOR, end = '', flush = True)
 	print("\n")
 	return
