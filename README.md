@@ -5,8 +5,9 @@ It has dependency on sympy library. Please install sympy before using prifpy.
 Usage:
 Add PRIFPY to your application with 'import prifpy'
 Use function prifpy.prifac to pass on the number to be prime factorized as an argument
-prifpy.prifac returns a list of ordered pairs which contain the prime factor and the power
-Use function prifpy.printprifac to print the list of prime factors to STDOUT
+prifpy.prifac returns a Python dictionary with prime factors as keys and respective powers as values.
+This dictionary has the number that is factorized also stored in it as the value under a special key '-1'
+Use function prifpy.printprifac to print the above dictionary of prime factors to STDOUT
 
 ##############################################################
 
