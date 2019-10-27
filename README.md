@@ -8,7 +8,6 @@ prifpy.prifac returns a list of ordered pairs which contain the prime factor and
 Use function prifpy.printprifac to print the list of prime factors to STDOUT
 
 ##############################################################
-
 Copyright 2019 Kamesh Raghavendra
 All Rights Reserved.
 ##############################################################
