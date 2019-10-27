@@ -81,6 +81,8 @@ def printprifac(primeFactors):
 	return
 
 # Compute the lowest common multiple for a given array of numbers
+# It takes an input argument of an array of positive integers > 1
+# It returns an 'int' value of the LCM of the numbers in the input array
 def lcm(numbers):
 	pfarray = numpy.array([prifac(num) for num in numbers])
 	lcm, lcmBuffer = dict(), dict()
