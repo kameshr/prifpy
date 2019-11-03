@@ -64,7 +64,7 @@ def printprifac(primeFactors):
 	if len(primeFactors) < 2:
 		print(ERRORCOLOR + "[ERROR] Ill formed prime factor list.\n" + LOSECOLOR)
 
-	if len(primeFactors) == 2 and primeFactors[-1] in primeFactors:
+	if len(primeFactors) == 2 and primeFactors[-1] in primeFactors and primeFactors[-1] != int(1):
 		print("[INFO] " + NUMCOLOR + str(primeFactors[-1]) + LOSECOLOR + " is a prime number.")
 	
 	first = False
@@ -120,4 +120,6 @@ def hcf(numbers):
 	for prime, power in hcf.items():
 		if prime > int(1):
 			hcf[-1] = hcf[-1] * pow(prime, power)
+	if len(hcf) == 1:
+	  hcf[1] = int(1)
 	return hcf
