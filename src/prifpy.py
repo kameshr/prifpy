@@ -42,6 +42,10 @@ def prifac(num):
 	primeFactors = dict()
 	primeFactors[-1] = num
 
+	if sympy.isprime(num):
+		primeFactors[num] = 1
+		return primeFactors
+
 	while primeIter <= iterLimit:
 		if num % primeIter == 0:
 			power = int(1)
