@@ -80,7 +80,7 @@ def printprifac(primeFactors):
 			print(PRIMECOLOR + str(prime) + POWERSYM + "^" + POWERCOLOR + str(power) + LOSECOLOR, end = '', flush = True)
 			first = False
 		else:
-			print(" + " + PRIMECOLOR + str(prime) + POWERSYM + "^" + POWERCOLOR + str(power) + LOSECOLOR, end = '', flush = True)
+			print(" * " + PRIMECOLOR + str(prime) + POWERSYM + "^" + POWERCOLOR + str(power) + LOSECOLOR, end = '', flush = True)
 	print("\n")
 	return
 
